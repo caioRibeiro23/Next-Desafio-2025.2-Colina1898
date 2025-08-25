@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_SC, Geist, Geist_Mono, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 
 const cormorantSC = Cormorant_SC({
   variable: "--font-cormorant-sc", 
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
