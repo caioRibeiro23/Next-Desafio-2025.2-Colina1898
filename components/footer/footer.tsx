@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="flex flex-col bg-black text-dourado p-4 w-full px-10 py-5 gap-10">
         <div className="flex flex-col items-center justify-center w-full gap-2.5 md:flex-row md:justify-between">
             <div className="flex flex-col items-center justify-center px-2.5 py-2.5 gap-2.5 w-full">
-                <span className="font-merriweather font-bold text-lg  items-center justify-center">Redes Sociais</span>
+                <span className="font-merriweather font-bold text-sm  items-center justify-center md:text-lg">Redes Sociais</span>
                 <Icones icone1="instagram" icone2="facebook" icone3="whatsapp" />
             </div>
             <Link href='/' className = "flex gap-4 items-center w-full justify-center">
@@ -31,7 +31,7 @@ export default function Footer() {
                     <TextoFooter titulo="Copyright" conteudo="© 2025 Colina1898. Todos os direitos reservados." />
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                    <span className="font-merriweather font-bold text-1xl  text-center">Sua compra é 100% segura</span>
+                    <span className="font-merriweather font-bold text-sm  text-center md:text-lg">Sua compra é 100% segura</span>
                     <Icones icone1="shield-lock" icone2="paypal" icone3="credit-card-2-back" />
                 </div>
             </div>
