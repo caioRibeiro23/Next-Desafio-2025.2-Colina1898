@@ -11,6 +11,9 @@ export default function Carrossel() {
                     <div className="flex flex-col items-center justify-center gap-15 md:gap-19 md:flex-row">
                         <Produto temDesc={false} />
                         <Produto temDesc={false} />
+                        <div className="hidden lg:block">
+                            <Produto temDesc={false} />
+                        </div>
                     </div>
                     <i className="bi bi-chevron-compact-down text-dourado text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl md:rotate-270"></i>
                 </div>
