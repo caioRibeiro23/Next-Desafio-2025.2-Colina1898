@@ -12,6 +12,8 @@
     --breakpoint-3xl: 3440px;
 
     --color-dourado: #B69551;
+    --color-cinza:#0D0D0D;
+    --color-pretoSuave: #030303;
 }
 
 @theme inline{

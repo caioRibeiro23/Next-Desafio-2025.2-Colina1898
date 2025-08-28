@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-col px-10 py-2.5 gap-2.5 items-center w-full">
-                <TextoFooter titulo="Termos de Uso" conteudo="Ao utilizar a plataforma COLINA 1898, você concorda com nossos termos e condições. O conteúdo do site é protegido por direitos autorais. O uso indevido é proibido." />
+                <TextoFooter titulo="Termos de Uso" conteudo="Ao utilizar a plataforma Colina1898, você concorda com nossos termos e condições. O conteúdo do site é protegido por direitos autorais. O uso indevido é proibido." />
             </div>
             <div className="flex flex-col px-10 py-2.5 gap-2.5 items-center w-full">
                 <TextoFooter titulo="Política de Privacidade" conteudo="A sua privacidade é nossa prioridade. Coletamos informações para melhorar sua experiência e processar seus pedidos. Seus dados são protegidos e não serão compartilhados sem seu consentimento, exceto com prestadores de serviço e conforme exigido por lei." />

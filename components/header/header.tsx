@@ -19,7 +19,7 @@ export default function Header() {
     const toggleNav = () => setIsNavOpen(!isNavOpen);
 
     return (
-        <header className="bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken text-white p-4 sticky top-0 z-20 w-full px-5 py-0 gap-2.5">
+        <header className="bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken text-white p-4 top-0 z-20 w-full px-5 py-0 gap-2.5">
             <div className="flex flex-wrap items-center justify-between px-5 pb-0 pt-2.5 w-full bp-540:px-10">
                 <Link href='/' className = "flex gap-4 items-center">
                     <Image
