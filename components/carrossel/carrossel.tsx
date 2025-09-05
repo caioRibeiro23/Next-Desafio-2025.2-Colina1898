@@ -42,7 +42,7 @@ export default function Carrossel() {
 
                     {/*Container com os cards*/}
                     <div className="overflow-hidden max-w-6xl" ref={emblaRef}>
-                        <div className="flex">
+                        <div className="flex w-full">
                             {[1, 2, 3, 4, 5, 6].map((n) => (
                                 <div
                                     key={n}
