@@ -1,4 +1,4 @@
-import FormularioLogin from "@/components/formulario/formularioLogin";
+import FormularioLogin from "@/components/formulario/login/formularioLogin";
 
 export default function LoginPage() {
     return (

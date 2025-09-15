@@ -4,6 +4,8 @@ import CardProduto from "@/components/produto/cardProduto";
 import Sidebar from "@/components/sidebar/sidebar";
 import TextoCardProduto from "@/components/Texto/textoCardProduto";
 import LinhaProduto from "@/components/gerenciamento/tabela/linhaProduto";
+import TituloGerenciamento from "@/components/Texto/tituloGerenciamento";
+import Link from "next/link";
 
 export default function GerenciamentoPage() {
   return (
@@ -15,8 +17,10 @@ export default function GerenciamentoPage() {
         <div className="bg-[url('/fundo/fundoLogin.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken flex flex-col items-center justify-center w-full gap-2.5 p-5">
         {/* topo - pré tabela */}
           <div className="flex justify-between items-center p-2.5 w-full">
-            <h1 className="text-2xl bp-540:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl text-dourado font-cormorant-sc font-bold">Gerenciamento de Produtos</h1>
-            <Botao texto={<div className="flex gap-2.5"><i className="bi bi-plus-square-fill"></i><p>Criar Produto</p></div>} />
+            <TituloGerenciamento texto="Gerenciamento de Produtos" />
+            <Link href="/gerenciamento/criar">
+                <Botao texto={<div className="flex gap-2.5"><i className="bi bi-plus-square-fill"></i><p>Criar Produto</p></div>} />
+            </Link>
           </div>
           
           <table className="min-w-full border-separate border-spacing-y-2.5">

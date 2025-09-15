@@ -1,4 +1,4 @@
-import Botao from "../botaoPadrao/botao";
+import Botao from "../../botaoPadrao/botao";
 import CampoFormLogin from "./campoFormLogin";
 
 export default function FormularioLogin(){
