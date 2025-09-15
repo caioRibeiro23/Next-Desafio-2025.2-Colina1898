@@ -11,7 +11,7 @@ export default function ZoomImage({ imagem, alt }: { imagem: string; alt: string
         alt={alt}
         width={900}
         height={900}
-        className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-25 object-cover rounded-2xl"
+        className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-40 object-cover rounded-2xl"
         />
     </Zoom>
   );

@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 
+import Image from "next/image";
 import TextoCardProduto from "../Texto/textoCardProduto";
-import ZoomImage from "./zoomImage";
+import ZoomImage from "../Carrinho/zoomImage";
+import BotoesCrud from "../gerenciamento/botoesCrud";
 
-export default function CardProduto({ imagem, nome, preco }: { imagem: string; nome: string; preco: number }) {
+export default function CardProduto({ imagem, nome, preco, gerenciamento = false }: { imagem: string; nome: string; preco: number; gerenciamento: boolean }) {
     const [quantidade, setQuantidade] = useState(1);
     const aumentarQuantidade = () => {
         setQuantidade(quantidade + 1);
@@ -19,9 +21,26 @@ export default function CardProduto({ imagem, nome, preco }: { imagem: string; n
 
     return (
         <div className="flex items-center justify-between px-4 py-2.5 w-full border border-dourado rounded-4xl">
+        {gerenciamento && (
+            <TextoCardProduto texto="001" />
+        )}
+        {gerenciamento ? (
+            <Image
+                    src={imagem}
+                    alt={nome}
+                    width={900}
+                    height={900}
+                    className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-30 object-cover rounded-2xl"
+                    />
+        ) : (
             <ZoomImage imagem={imagem} alt={nome} />
+        )}
+            
             <TextoCardProduto texto={nome} />
             <TextoCardProduto texto={`R$ ${precoTotal.toFixed(2)}`} />
+        {gerenciamento ? (
+            <BotoesCrud />
+        ) : (
             <div className="flex flex-col items-center justify-center p-2.5">
                 <TextoCardProduto texto="Qtd" />
                 <div className="flex items-center justify-center gap-1.25">
@@ -34,6 +53,7 @@ export default function CardProduto({ imagem, nome, preco }: { imagem: string; n
                     <span className="text-dourado text-sm bp-540:text-sm lg:text-base xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-medium font-cormorant-sc">Remover</span>
                 </button>
             </div>
+        )}
         </div>
     );
 }

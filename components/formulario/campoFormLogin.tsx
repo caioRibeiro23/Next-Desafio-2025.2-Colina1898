@@ -1,0 +1,21 @@
+type CampoFormProps = {
+    campo: string;
+    type: string;
+    id: string;
+    name: string;
+};
+
+export default function CampoFormLogin({ campo, type, id, name }: CampoFormProps) {
+    return (
+        <div className="flex flex-col w-full items-center justify-center font-cormorant-sc text-white ">
+            <label htmlFor={id} className="text-dourado font-bold text-start text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl w-full">{campo}:</label>
+            <div className="w-full px-1.25 py-1 border-b border-dourado font-medium text-start text-sm bp-540:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl">
+                {type === "textarea" ? (
+                    <textarea rows={3} id={id} name={name} required={true} className="border-none focus:outline-none w-full text-dourado"></textarea>
+                ) : (
+                    <input type={type} id={id} name={name} required={true} className="border-none focus:outline-none w-full text-dourado    "/>
+                )}
+            </div>
+        </div>
+    );
+}

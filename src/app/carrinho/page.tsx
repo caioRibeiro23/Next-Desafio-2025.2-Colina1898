@@ -1,4 +1,4 @@
-import CardProduto from "@/components/Carrinho/cardProduto";
+import CardProduto from "@/components/produto/cardProduto";
 import Resumo from "@/components/Carrinho/Resumo/resumo";
 
 export default function CarrinhoPage() {
