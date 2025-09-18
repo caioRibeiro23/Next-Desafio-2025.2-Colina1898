@@ -10,9 +10,6 @@ import Link from "next/link";
 export default function GerenciamentoPage() {
   return (
     <div className="w-full flex">
-        <div className="hidden md:block">
-            <Sidebar />
-        </div>
         {/* div de gerenciamento */}
         <div className="bg-[url('/fundo/fundoLogin.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken flex flex-col items-center justify-center w-full gap-2.5 p-5">
         {/* topo - pré tabela */}
@@ -26,7 +23,7 @@ export default function GerenciamentoPage() {
           <table className="min-w-full border-separate border-spacing-y-2.5">
             {/* tabela - cabeçalho */}
             <thead>
-              <tr className="grid grid-cols-[1fr_2fr_2.5fr_1fr_2fr] items-center px-4 py-2.5 w-full border border-dourado rounded-4xl">
+              <tr className="bg-black/70 grid grid-cols-[1fr_2fr_2.5fr_1fr_2fr] items-center px-4 py-2.5 w-full border border-dourado rounded-4xl">
                 <th className="flex items-center justify-center ">
                   <TextoCardProduto texto="ID" />
                 </th>

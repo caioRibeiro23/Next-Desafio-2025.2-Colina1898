@@ -9,7 +9,7 @@ import BotoesCrud from "../botoesCrud";
 export default function LinhaProduto({ imagem, nome, preco}: { imagem: string; nome: string; preco: number }) {
 
     return (
-        <tr className="flex items-center justify-between px-4 py-2.5 w-full border border-dourado rounded-4xl">
+        <tr className="bg-black/70 flex items-center justify-between px-4 py-2.5 w-full border border-dourado rounded-4xl">
             <td>
                 <TextoCardProduto texto="001" /></td>
             <td>
@@ -18,7 +18,7 @@ export default function LinhaProduto({ imagem, nome, preco}: { imagem: string; n
                     alt={nome}
                     width={900}
                     height={900}
-                    className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-30 object-cover rounded-2xl"
+                    className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-24 object-cover rounded-2xl"
                 />
             </td>
             <td>
