@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TipoProduto {
+  VESTUARIO
+  OBJETO
+}
+
 model Produto{
   id        Int      @id @default(autoincrement())
   title      String @unique
@@ -21,6 +26,6 @@ model Produto{
   price      Float
   principalImage      String
   secondaryImages     String[]
-  type       String
+  type       TipoProduto
   createdAt  DateTime @default(now())
 }

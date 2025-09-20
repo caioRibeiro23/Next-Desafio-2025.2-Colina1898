@@ -10,7 +10,7 @@ export default async function getLancamentos() {
         select: {
             id: true,
             title: true,
-            image: true,
+            principalImage: true,
             price: true,
         },
         take: 6

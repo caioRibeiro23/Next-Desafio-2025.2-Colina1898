@@ -13,7 +13,7 @@ export default async function Page({params}: { params: { id: string }}) {
   return (
     <div className="bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center  bg-black/97 bg-blend-darken flex flex-col items-center justify-center gap-10 py-10 lg:gap-17.5 px-5 w-full">
         <div className="flex flex-col items-center justify-center gap-5 p-2.5 w-full lg:flex-row">
-            <AreaFotos />
+            <AreaFotos imagemPrincipal={produto?.principalImage ?? ""} imagensSecundarias={produto?.secondaryImages ?? []} />
             <div className="flex flex-col items-center justify-center gap-4 lg:gap-6 p-2.5 w-full">
               <h1 className="text-white text-xl bp-540:text-2xl bp-840:text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-semibold font-cormorant-sc text-center md:px-20">{produto?.title}</h1>
               <p className="text-white text-xl bp-540:text-2xl bp-840:text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold font-cormorant-sc text-center md:p-5">R$ {produto?.price}</p>

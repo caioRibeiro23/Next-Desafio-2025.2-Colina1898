@@ -10,7 +10,7 @@ export async function getProdutos() {
         select: {
             id: true,
             title: true,
-            image: true,
+            principalImage: true,
             price: true,
             summary: true
         }
