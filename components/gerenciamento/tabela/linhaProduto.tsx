@@ -4,15 +4,15 @@ import { useState } from "react";
 
 import Image from "next/image";
 import TextoCardProduto from "../../Texto/textoCardProduto";
-import BotoesCrud from "../botoesCrud";
+import BotoesCrud from "./botoes/botoesCrud";
 
 export default function LinhaProduto({ imagem, nome, preco}: { imagem: string; nome: string; preco: number }) {
 
     return (
-        <tr className="bg-black/70 flex items-center justify-between px-4 py-2.5 w-full border border-dourado rounded-4xl">
-            <td>
-                <TextoCardProduto texto="001" /></td>
-            <td>
+        <div className=" bg-black/70 grid  grid-cols-[1fr_2.5fr_2fr_1fr]  bp-840:grid-cols-[1fr_1fr_2.5fr_1fr_2fr] items-center py-2.5 w-full border border-dourado rounded-4xl">
+            <div className="px-4 py-2 text-center">
+                <TextoCardProduto texto="001" /></div>
+            <div className="px-4 hidden items-center justify-center bp-840:flex">
                 <Image
                     src={imagem}
                     alt={nome}
@@ -20,16 +20,16 @@ export default function LinhaProduto({ imagem, nome, preco}: { imagem: string; n
                     height={900}
                     className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-24 object-cover rounded-2xl"
                 />
-            </td>
-            <td>
+            </div>
+            <div className="px-4 py-2 flex items-center justify-center">
                 <TextoCardProduto texto={nome} />
-            </td>
-            <td>
+            </div>
+            <div className="px-4 py-2 flex items-center justify-center">
                 <TextoCardProduto texto={`R$ ${preco.toFixed(2)}`} />
-            </td>
-            <td>
+            </div>
+            <div className="px-4 py-2 flex items-center justify-center">
                 <BotoesCrud />
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 }

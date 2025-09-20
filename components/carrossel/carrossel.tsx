@@ -4,8 +4,13 @@ import { useEffect, useState } from "react";
 import Produto from "../produto/produto";
 import useEmblaCarousel from "embla-carousel-react";
 import WheelGesturesPlugin from "embla-carousel-wheel-gestures";
+import { ProdutoType } from "@/types/data";
 
-export default function Carrossel() {
+type CarrosselProps = {
+    produtos: ProdutoType[];
+}
+
+export default function Carrossel({ produtos }: CarrosselProps) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
@@ -43,12 +48,12 @@ export default function Carrossel() {
                     {/*Container com os cards*/}
                     <div className="overflow-hidden max-w-6xl" ref={emblaRef}>
                         <div className="flex w-full">
-                            {[1, 2, 3, 4, 5, 6].map((n) => (
+                            {produtos.map((produto, index) => (
                                 <div
-                                    key={n}
+                                    key={produto.id}
                                     className="flex flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] p-4 items-center justify-center w-fit"
                                 >
-                                    <Produto temDesc={false} />
+                                    <Produto produto={produto} temDesc={false} />
                                 </div>
                             ))}
                         </div>

@@ -29,7 +29,7 @@ export default function Sidebar() {
                     <i className="bi bi-list text-2xl bp-540:text-3xl text-white" onClick={toggleSidebar}></i>
                 </div>
             </div>
-            <aside className={'fixed top-0 left-0 z-40 w-full md:w-61 transition-transform duration-300 md:translate-x-0 md:border-r-2 md:border-dourado md:static' + (isOpen ? '-translate-x-0 ' : ' -translate-x-full')}>
+            <aside className={'fixed top-0 left-0 z-40 w-full md:w-51 lg:w-61 transition-transform duration-300 md:translate-x-0 md:border-r-2 md:border-dourado md:static' + (isOpen ? '-translate-x-0 ' : ' -translate-x-full')}>
                 <div className=" bg-black flex flex-col items-center h-screen px-2.5 py-2.5 overflow-y-auto">
                     <div className="flex flex-row items-center justify-between md:justify-center w-full">
                         <Link href='/' className = "flex items-center">
@@ -48,7 +48,7 @@ export default function Sidebar() {
                         {links.map((link, index) => (
                             <li key={index} className="w-full">
                                 <Link href={link.href} className={`text-dourado px-2.5 w-full ${link.label === "Gerenciamento" ? "bg-gradient-to-r from-cinzaEscuro to-pretoSuave border-l-2 border-dourado" : "hover:bg-gradient-to-r hover:from-cinzaEscuro hover:to-pretoSuave"} transition-colors duration-200 p-2 block`}>
-                                    <span className="text-start font-cormorant-sc font-normal text-sm bp-540:text-base lg:text-2xl xl:text-xl 2xl:text-2xl 3xl:text-3xl">{link.label}</span>
+                                    <span className="text-start font-cormorant-sc font-normal text-lg bp-540:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">{link.label}</span>
                                 </Link>
                             </li>
                         ))}
