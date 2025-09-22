@@ -6,9 +6,18 @@ import TextoCardProduto from "@/components/Texto/textoCardProduto";
 import LinhaProduto from "@/components/gerenciamento/tabela/linhaProduto";
 import TituloGerenciamento from "@/components/Texto/tituloGerenciamento";
 import Link from "next/link";
+import { getProdutos } from "@/actions/produtos/actions";
 
 
-export default function GerenciamentoPage() {
+export default async function GerenciamentoPage({
+    searchParams,
+}: {
+    searchParams: {
+        page?: string
+    }
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const { produtos, totalPages } =  await getProdutos(currentPage);
   return (
     <div className="w-full flex md:h-screen ">
         {/* div de gerenciamento */}
@@ -42,12 +51,12 @@ export default function GerenciamentoPage() {
             </div>
             {/* tabela - cards */}
             <div className="flex flex-col gap-2.5 w-full">
-            <LinhaProduto imagem="/produtos/camisa-I.png" nome="Camisa Masculina Home Player 2025" preco={399.90} />
-            <LinhaProduto imagem="/produtos/camisa-I.png" nome="Camisa Masculina Away Player 2025" preco={399.90} />
-            <LinhaProduto imagem="/produtos/camisa-I.png" nome="Camisa Masculina Third Player 2025" preco={399.90} />
+            {produtos.map((produto) => (
+                <LinhaProduto key={produto.id} produto={produto} />
+            ))}
             </div>
           </div>
-          <Paginacao />
+          {totalPages > 1 && <Paginacao totalPages={totalPages} />}
         </div>
     </div>
   );
