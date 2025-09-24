@@ -1,4 +1,4 @@
-import { fetchProdutoById } from "@/actions/individualView/actions";
+import { fetchProdutoById } from "@/actions/individual/actions";
 import Botao from "@/components/botaoPadrao/botao";
 import AreaFotos from "@/components/produtoInd/areaFotos/areaFotos";
 import Selecao from "@/components/produtoInd/selecao/selecao";

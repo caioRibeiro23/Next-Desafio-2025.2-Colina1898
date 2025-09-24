@@ -1,4 +1,4 @@
-import { getProdutos } from "@/actions/produtos/actions";
+import { getProdutos } from "@/actions/gerenciamento/actions";
 import { fetchFilterProdutos } from "@/actions/search/actions";
 import Search from "@/components/listaProdutos/search/search";
 import Paginacao from "@/components/paginacao/paginacao";

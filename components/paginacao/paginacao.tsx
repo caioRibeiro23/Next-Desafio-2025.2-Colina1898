@@ -32,11 +32,11 @@ export default function Paginacao({totalPages}: {totalPages: number}) {
 
     return (
         <div className="flex items-center justify-center gap-2.5 w-full">
-            <BotaoPaginacao href={createPageURL(currentPage - 1)} texto={<i className="bi bi-skip-backward"></i>} />
+            <BotaoPaginacao href={createPageURL(currentPage - 1)} texto={<i className="bi bi-skip-backward text-xs bp-540:text-sm bp-840:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl"></i>} />
             {allPages.map((page, index) => (
                 <BotaoPaginacao key={index} href={createPageURL(page)} texto={page} className={page === currentPage ? "bg-black text-dourado border border-dourado" : ""} />
             ))}
-            <BotaoPaginacao href={createPageURL(currentPage + 1)} texto={<i className="bi bi-skip-forward"></i>} />
+            <BotaoPaginacao href={createPageURL(currentPage + 1)} texto={<i className="bi bi-skip-forward text-xs bp-540:text-sm bp-840:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl"></i>} />
         </div>
     );
 }

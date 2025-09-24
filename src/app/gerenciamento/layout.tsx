@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Sidebar from "@/components/sidebar/sidebar";
+import { SidebarWrapper } from "@/components/sidebar/sidebarWrapper";
 
 export default function AdminLayout({
   children,
@@ -7,9 +8,9 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg:black">
+    <div className="bg-black">
         <div className="md:flex">
-        <Sidebar />
+          <SidebarWrapper />
             {children}
         </div>
         <Footer />

@@ -4,9 +4,11 @@ import { useState } from "react";
 import Botao from "../../botaoPadrao/botao";
 import CampoFormCrud from "./campoFormCrud";
 import Image from "next/image";
+import CriarProduto from "@/src/app/gerenciamento/acoes/criar/page";
+// import { createProduto } from "@/actions/gerenciamento/actions";
 
 export default function FormularioCriar() {
-    const imagensSecundarias = ["", "", "", ""];
+    const imagensSecundarias = ["", "", ""];
     const [previewImage, setPreviewImage] = useState("/previewImagem/selectImage.png");
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -36,7 +38,7 @@ export default function FormularioCriar() {
                 <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue="" />
             </div>
             {/* area de imagens */}
-            <div className="flex flex-col items-center justify-between w-full h-full md:px-10">
+            <div className="flex flex-col items-start justify-between w-full h-full md:px-10">
                 <div className="flex flex-col md:flex-row gap-15 p-2.5">
                     <div className="flex flex-col items-center justify-center font-cormorant-sc">
                         <span className="text-dourado font-bold text-start text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">Foto Principal:</span>
@@ -51,7 +53,7 @@ export default function FormularioCriar() {
                             />
                         )}
                         </label>
-                        <input type="file" id="image" name="image" accept="image/*" onChange={handleChange} className="hidden"/>
+                        <input type="file" id="image" name="principalImage" accept="image/*" onChange={handleChange} className="hidden"/>
                     </div>
                     <div className="flex flex-col items-center justify-center font-cormorant-sc">
                         <span className="text-dourado font-bold text-start text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">Fotos Secundárias:</span>

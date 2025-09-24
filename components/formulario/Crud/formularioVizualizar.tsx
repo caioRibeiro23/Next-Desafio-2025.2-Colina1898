@@ -4,22 +4,23 @@ import { useState } from "react";
 import Botao from "../../botaoPadrao/botao";
 import CampoFormCrud from "./campoFormCrud";
 import Image from "next/image";
+import { ProdutoType } from "@/types/data";
+import Link from "next/link";
 
-export default function FormularioVizualizar({imagem, imagem2, imagem3, imagem4, imagem5}: {imagem: string, imagem2: string, imagem3: string, imagem4: string, imagem5: string}) {
-    const imagensSecundarias = [imagem2, imagem3, imagem4, imagem5];
-    
+export default function FormularioVizualizar({ produto }: { produto: ProdutoType | null }) {
+    const imagensSecundarias = produto?.secondaryImages ?? ["", "", ""];
 
 
     return (
         <div className="flex flex-col items-start justify-center gap-5 py-2.5 w-full">
             <div className="flex flex-col gap-7.5 p-2.5 w-full">
-                <CampoFormCrud campo="Nome" type="text" id="name" name="name" defaultValue="Camisa Masculina Home Player 2025" visualizar={true} />
+                <CampoFormCrud campo="Nome" type="text" id="name" name="name" defaultValue={produto?.title ?? ""} visualizar={true} />
 
-                <CampoFormCrud campo="Preço" type="text" id="price" name="price" defaultValue="399,90" visualizar={true} />
+                <CampoFormCrud campo="Preço" type="text" id="price" name="price" defaultValue={produto?.price?.toFixed(2) ?? ""} visualizar={true} />
 
-                <CampoFormCrud campo="Resumo" type="text" id="summary" name="summary" defaultValue="Com design inovador e tecnologia de ponta, esta é a mesma camisa utilizada pelos jogadores em campo." visualizar={true} />
+                <CampoFormCrud campo="Resumo" type="text" id="summary" name="summary" defaultValue={produto?.summary ?? ""} visualizar={true} />
 
-                <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue="Sinta a emoção do seu time do coração com a Camisa Masculina Home Player 2025. Com design inovador e tecnologia de ponta, esta é a mesma camisa utilizada pelos jogadores em campo. Vista a paixão do seu time e celebre suas conquistas. Feita com materiais de alta qualidade para garantir conforto e desempenho, é a escolha ideal para torcer ou para o dia a dia" visualizar={true} />
+                <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue={produto?.description ?? ""} visualizar={true} />
             </div>
             {/* area de imagens */}
             <div className="fle items-center justify-between w-full h-full md:px-10">
@@ -27,7 +28,7 @@ export default function FormularioVizualizar({imagem, imagem2, imagem3, imagem4,
                     <div className="flex flex-col items-center justify-center font-cormorant-sc">
                         <span className="text-dourado font-bold text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-center">Foto Principal:</span>
                             <Image
-                                src={imagem}
+                                src={produto?.principalImage || '/produtos/default.png'}
                                 alt="Preview"
                                 width={900}
                                 height={900}
@@ -41,7 +42,7 @@ export default function FormularioVizualizar({imagem, imagem2, imagem3, imagem4,
                             {imagensSecundarias.map((img, index) => (
                                 <div className="flex flex-col items-center" key={index}>
                                     <Image
-                                        src={img}
+                                        src={imagensSecundarias[index] || '/produtos/default.png'}
                                         alt={`Imagem Secundária ${index + 1}`}
                                         width={300}
                                         height={300}
@@ -56,7 +57,9 @@ export default function FormularioVizualizar({imagem, imagem2, imagem3, imagem4,
                     </div>
                 </div>
                 <div className="flex justify-center md:justify-end items-center">
-                    <Botao texto="Fechar" />
+                    <Link href="/gerenciamento">
+                        <Botao texto="Fechar" />
+                    </Link>
                 </div>
             </div>
         </div>

@@ -35,7 +35,7 @@ export default function Carrossel({ produtos }: CarrosselProps) {
 
     return (
         <div className="px-5 w-full">
-            <div className=" flex flex-col px-2.5 py-7.5 gap-5 md:gap-7.5 w-full items-center justify-center bg-cinza/60 rounded-xl">
+            <div className=" flex flex-col px-2.5 py-7.5 gap-5 md:gap-7.5 w-full justify-center bg-cinza/60 rounded-xl items-center">
             
                 <h1 className="text-dourado text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-semibold text-center font-cormorant-sc">Veja Nossos Destaques</h1>
 
@@ -51,7 +51,7 @@ export default function Carrossel({ produtos }: CarrosselProps) {
                             {produtos.map((produto, index) => (
                                 <div
                                     key={produto.id}
-                                    className="flex flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] p-4 items-center justify-center w-fit"
+                                    className="flex flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] p-4 items-stretch justify-center w-fit"
                                 >
                                     <Produto produto={produto} temDesc={false} />
                                 </div>
