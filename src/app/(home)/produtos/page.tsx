@@ -7,12 +7,10 @@ import Produto from "@/components/produto/produto";
 export default async function Page({
     searchParams,
 }: {
-    searchParams: {
-        query?: string
-        page?: string
-    }
+    searchParams: { [key: string]: string | string[] | undefined };
 }) {
-    const query = searchParams.query || "";
+    const rawQuery = searchParams?.query;
+    const query = Array.isArray(rawQuery)? rawQuery[0] ?? "": rawQuery ?? "";
     const currentPage = Number(searchParams?.page) || 1;
 
     const { produtos, count, totalPages } = await fetchFilterProdutos(query, currentPage);
