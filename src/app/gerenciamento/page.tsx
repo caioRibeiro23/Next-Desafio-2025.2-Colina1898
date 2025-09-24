@@ -8,21 +8,20 @@ import TituloGerenciamento from "@/components/Texto/tituloGerenciamento";
 import Link from "next/link";
 import { getProdutos } from "@/actions/gerenciamento/actions";
 import CreateButton from "@/components/gerenciamento/tabela/botoes/createButton";
+type SearchParams = { [key: string]: string | string[] | undefined };
 
 
 export default async function GerenciamentoPage({
     searchParams,
 }: {
-    searchParams: {
-        page?: string
-    }
+    searchParams?: SearchParams;
 }) {
-  const currentPage = Number(searchParams?.page) || 1;
-  const { produtos, totalPages } =  await getProdutos(currentPage);
-  return (
-    <div className="w-full flex md:h-screen relative ">
-        {/* div de gerenciamento */}
-        <div className="bg-[url('/fundo/fundoLogin.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken flex flex-col justify-start w-full gap-2.5 p-5 items-center h-full">
+    const currentPage = Number(searchParams?.page) || 1;
+    const { produtos, totalPages } = await getProdutos(currentPage);
+    return (
+        <div className="w-full flex md:h-screen relative ">
+            {/* div de gerenciamento */}
+            <div className="bg-[url('/fundo/fundoLogin.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken flex flex-col justify-start w-full gap-2.5 p-5 items-center h-full">
         {/* topo - pré tabela */}
           <div className="flex flex-col gap-2.5 justify-center lg:flex-row lg:justify-between items-center p-2.5 w-full">
             <TituloGerenciamento texto="Gerenciamento de Produtos" />

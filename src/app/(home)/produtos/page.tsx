@@ -3,11 +3,13 @@ import { fetchFilterProdutos } from "@/actions/search/actions";
 import Search from "@/components/listaProdutos/search/search";
 import Paginacao from "@/components/paginacao/paginacao";
 import Produto from "@/components/produto/produto";
+type SearchParams = { [key: string]: string | string[] | undefined };
+
 
 export default async function Page({
     searchParams,
 }: {
-    searchParams?: { [key: string]: string | string[] | undefined };
+    searchParams?: SearchParams;
 }) {
     const rawQuery = searchParams?.query;
     const query = Array.isArray(rawQuery)? rawQuery[0] ?? "": rawQuery ?? "";
