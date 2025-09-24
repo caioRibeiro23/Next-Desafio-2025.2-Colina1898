@@ -7,7 +7,7 @@ import Produto from "@/components/produto/produto";
 export default async function Page({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams?: { [key: string]: string | string[] | undefined };
 }) {
     const rawQuery = searchParams?.query;
     const query = Array.isArray(rawQuery)? rawQuery[0] ?? "": rawQuery ?? "";
