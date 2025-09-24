@@ -4,9 +4,9 @@ import AcoesCrud from "@/components/gerenciamento/crud/AcoesCrud";
 export default async function EditarProduto({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const id = parseInt(params.id, 10);
+  const id = parseInt((await params).id, 10);
   const produto = await fetchProdutoById(id);
   return (
     <AcoesCrud editar={true} produto={produto} />

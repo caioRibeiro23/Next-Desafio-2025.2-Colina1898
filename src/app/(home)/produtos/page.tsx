@@ -3,17 +3,17 @@ import { fetchFilterProdutos } from "@/actions/search/actions";
 import Search from "@/components/listaProdutos/search/search";
 import Paginacao from "@/components/paginacao/paginacao";
 import Produto from "@/components/produto/produto";
-type SearchParams = { [key: string]: string | string[] | undefined };
-
 
 export default async function Page({
     searchParams,
 }: {
-    searchParams?: SearchParams;
+    searchParams: Promise<{
+    query?: string;
+    page?: string;
+    }>;
 }) {
-    const rawQuery = searchParams?.query;
-    const query = Array.isArray(rawQuery)? rawQuery[0] ?? "": rawQuery ?? "";
-    const currentPage = Number(searchParams?.page) || 1;
+    const query = (await searchParams).query || "";
+    const currentPage = Number((await searchParams).page) || 1;
 
     const { produtos, count, totalPages } = await fetchFilterProdutos(query, currentPage);
 

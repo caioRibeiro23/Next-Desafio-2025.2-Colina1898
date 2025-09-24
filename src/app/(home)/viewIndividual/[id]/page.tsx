@@ -5,8 +5,8 @@ import Selecao from "@/components/produtoInd/selecao/selecao";
 import Descricao from "@/components/Texto/descricao";
 import TituloMenor from "@/components/Texto/tituloMenor";
 
-export default async function Page({params}: { params: { id: string }}) {
-  const id = parseInt(params.id,10);
+export default async function Page({params}: { params: Promise<{ id: string }>}) {
+  const id = parseInt((await params).id,10);
 
   const produto = await fetchProdutoById(id);
 
