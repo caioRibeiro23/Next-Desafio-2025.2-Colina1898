@@ -3,6 +3,8 @@ import Carrossel from "@/components/carrossel/carrossel";
 import HeroSection from "@/components/herosection/heroSection";
 import SobreNos from "@/components/sobreNosCard/sobreNosCard";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const produtos = await getLancamentos();
   return (
