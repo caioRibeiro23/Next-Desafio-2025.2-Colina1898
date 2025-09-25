@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <header className="bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/80 bg-blend-darken text-white top-0 z-20 w-full px-10 pt-2 pb-1 gap-2.5">
-            <div className="flex flex-wrap items-center justify-between pb-0 pt-0 w-full bp-540:px-5">
+            <div className="flex flex-wrap md:grid md:grid-cols-3 items-center justify-between pb-0 pt-0 w-full bp-540:px-5">
                 <Link href='/' className = "flex gap-4 items-center">
                     <Image
                         src={'/logo/logo.png'}
@@ -31,7 +31,7 @@ export default function Header() {
                     />
                 </Link>
                 <div>
-                    <span className="font-cormorant-sc text-white hidden md:block md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold [-webkit-text-stroke:1px_var(--color-dourado)] w-full">A Loja do Gigante</span>
+                    <span className="font-cormorant-sc text-white hidden md:block md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold [-webkit-text-stroke:1px_var(--color-dourado)] w-full text-center">A Loja do Gigante</span>
                 </div>
                 <div className="items-center justify-end hidden md:flex">
                     <BotaoLogin></BotaoLogin>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_SC, Geist, Geist_Mono, Merriweather } from "next/font/google";
+import { CartProvider } from "../context/cartContext";
 import "./globals.css";
 
 
@@ -41,7 +42,9 @@ export default function RootLayout({
       <body
         className={`${cormorantSC.variable} ${merriweather.variable} antialiased`}
       >
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
