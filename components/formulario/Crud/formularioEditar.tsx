@@ -26,7 +26,9 @@ export default function FormularioEditar({produto}: {produto: ProdutoType | null
         }
     };
 
-    const updateProdutoWithId = updateProduto.bind(null, produto?.id);
+    const updateProdutoWithId = async (formData: FormData) => {
+        await updateProduto(produto?.id, formData);
+    };
 
     return (
         <form className="flex flex-col items-start justify-center gap-5 py-2.5 w-full" action={updateProdutoWithId}>
@@ -55,7 +57,7 @@ export default function FormularioEditar({produto}: {produto: ProdutoType | null
                             />
                         )}
                         </label>
-                        <input type="file" id="image" name="image" accept="image/*" onChange={handleChange} className="hidden"/>
+                        <input type="file" id="image" name="principalImage" accept="image/*" onChange={handleChange} className="hidden"/>
                     </div>
                     <div className="flex flex-col items-center justify-center font-cormorant-sc">
                         <span className="text-dourado font-bold text-start text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">Fotos Secundárias:</span>
