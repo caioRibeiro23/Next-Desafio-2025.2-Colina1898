@@ -5,7 +5,7 @@ import Botao from "../../botaoPadrao/botao";
 import CampoFormCrud from "./campoFormCrud";
 import Image from "next/image";
 import CriarProduto from "@/src/app/gerenciamento/acoes/criar/page";
-// import { createProduto } from "@/actions/gerenciamento/actions";
+import { createProduto } from "@/actions/gerenciamento/actions";
 
 export default function FormularioCriar() {
     const imagensSecundarias = ["", "", ""];
@@ -27,7 +27,7 @@ export default function FormularioCriar() {
     };
 
     return (
-        <form className="flex flex-col items-start justify-center gap-5 py-2.5 w-full">
+        <form className="flex flex-col items-start justify-center gap-5 py-2.5 w-full" action={createProduto}>
             <div className="flex flex-col gap-7.5 p-2.5 w-full">
                 <CampoFormCrud campo="Nome" type="text" id="name" name="name" defaultValue="" />
 

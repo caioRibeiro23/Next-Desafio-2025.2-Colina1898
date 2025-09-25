@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { put } from "@vercel/blob";
 
+
 const itemsPerPage = 3;
 
 export async function getProdutos(currentPage: number) {
@@ -36,7 +37,7 @@ export async function deleteProduto(id: number) {
     revalidatePath("/gerenciamento");
 }
 
-export async function updateProduto(id: number | undefined, formData: FormData): Promise<ProdutoType | null> {
+export async function updateProduto(id: number | undefined, formData: FormData){
     const nome = formData.get("name")?.toString() || "";
     const price = parseFloat(formData.get("price")?.toString() || "0");
     const summary = formData.get("summary")?.toString() || "";
@@ -47,11 +48,11 @@ export async function updateProduto(id: number | undefined, formData: FormData):
         formData.get("image-1") as File | null,
         formData.get("image-2") as File | null
     ];
-    try {
         let newPrincipalImageURL: string | undefined;
         if (principalImageFile && principalImageFile.size > 0)  {
             const blob = await put(principalImageFile.name, principalImageFile, {
                 access: 'public',
+                addRandomSuffix: true,
             });
             newPrincipalImageURL = blob.url;
         }
@@ -60,6 +61,7 @@ export async function updateProduto(id: number | undefined, formData: FormData):
             if (file && file.size > 0) {
                 const blob = await put(file.name, file, {
                     access: 'public',
+                    addRandomSuffix: true,
                 });
                 newSecundaryImagesURLs.push(blob.url);
             } else {
@@ -90,24 +92,52 @@ export async function updateProduto(id: number | undefined, formData: FormData):
             secondaryImages: finalSecondaryImages
         }
         });
+        revalidatePath("/gerenciamento"); 
         redirect("/gerenciamento");
-    } catch (error) {
-        console.error("Erro ao atualizar o produto:", error);
-        return null;
-    }
 }
 
-// const numberSecundaryImages = 3;
-// export async function createProduto(formData: FormData) {
-//     const nome = formData.get("name")?.toString() || "";
-//     const price = parseFloat(formData.get("price")?.toString() || "0");
-//     const summary = formData.get("summary")?.toString() || "";
-//     const description = formData.get("description")?.toString() || "";
-
-//     const principalFile = formData.get("principalImage");
-//     let principalImageUrl = "";
-//     if (principalFile instanceof File && principalFile.size > 0) {
-//         principalImageUrl = await uploadImage(principalFile);
+export async function createProduto(formData: FormData) {
+    const nome = formData.get("name")?.toString() || "";
+    const price = parseFloat(formData.get("price")?.toString() || "0");
+    const summary = formData.get("summary")?.toString() || "";
+    const description = formData.get("description")?.toString() || "";
+    const principalFile = formData.get("principalImage") as File | null;
+    const secundaryFiles = [
+        formData.get("image-0") as File | null,
+        formData.get("image-1") as File | null,
+        formData.get("image-2") as File | null
+    ];
+    let principalImageUrl = "";
+    if (principalFile && principalFile.size > 0) {
+        const blob = await put(principalFile.name, principalFile, {
+            access: 'public',
+            addRandomSuffix: true,
+        });
+        principalImageUrl = blob.url;
+    }
+    const secondaryImages: string[] = [];
+    for (const file of secundaryFiles) {
+        if (file && file.size > 0) {
+            const blob = await put(file.name, file, {
+                access: 'public',
+                addRandomSuffix: true,
+            });
+            secondaryImages.push(blob.url);
+        }
+    }
+    await prisma.produto.create({
+        data: {
+            title: nome,
+            price,
+            summary,
+            description,
+            principalImage: principalImageUrl,
+            secondaryImages,
+            type: "VESTUARIO"
+        }
+    });
+    redirect("/gerenciamento");
+}
 //     }
 
 //     // Pega as secundárias

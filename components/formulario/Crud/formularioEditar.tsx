@@ -26,9 +26,7 @@ export default function FormularioEditar({produto}: {produto: ProdutoType | null
         }
     };
 
-    const updateProdutoWithId = async (formData: FormData) => {
-        await updateProduto(produto?.id, formData);
-    };
+    const updateProdutoWithId = updateProduto.bind(null, produto?.id);
 
     return (
         <form className="flex flex-col items-start justify-center gap-5 py-2.5 w-full" action={updateProdutoWithId}>

@@ -19,7 +19,7 @@ export default function LinhaProduto({ produto }: { produto: ProdutoType }) {
                     alt={produto.title ?? "Produto sem título"}
                     width={900}
                     height={900}
-                    className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-24 object-cover rounded-2xl"
+                    className="w-25 sm:w-25 bp-540:w-25 md:w-25 bp-840:w-25 lg:w-24 object-cover rounded-2xl aspect-square"
                 />
             </div>
             <div className="px-4 py-2 flex items-center justify-center">
