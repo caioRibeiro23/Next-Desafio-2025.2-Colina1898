@@ -49,10 +49,13 @@ export default function Header() {
                 {isNavOpen && (
                     <div className="md:hidden flex basis-full flex-col items-center gap-6 pb-6 ">
                         {links.map((link, index) => (
-                            <Link key={index} href={link.href} className="text-white hover:text-dourado px-2.5">
+                            <Link onClick={() => setIsNavOpen(false)} key={index} href={link.href} className="text-white hover:text-dourado px-2.5">
                                 <span className=" font-merriweather font-normal text-sm bp-540:text-base  xl:text-lg 2xl:text-xl 3xl:text-2xl">{link.label}</span>
                             </Link>
                         ))}
+                        <Link onClick={() => setIsNavOpen(false)} href="/login" className="text-white hover:text-dourado px-2.5">
+                            <span className=" font-merriweather font-normal text-sm bp-540:text-base  xl:text-lg 2xl:text-xl 3xl:text-2xl">Login</span>
+                        </Link>
                     </div>
                 )}
 
