@@ -5,7 +5,7 @@ import Botao from "../../botaoPadrao/botao";
 import CampoFormLogin from "./campoFormLogin";
 import { useRouter } from "next/navigation";
 
-export default function FormularioLogin(){
+export default function FormularioLogin({ registro = false }: { registro?: boolean }) {
     const router = useRouter();
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
@@ -13,15 +13,16 @@ export default function FormularioLogin(){
     }
     return (
         <form className="flex flex-col items-center justify-center gap-5 py-2.5 px-7.5 w-full" onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-7.5 p-2.5 w-full items-center justify-center">
+            <div className="flex flex-col gap-5 p-2.5 w-full items-center justify-center">
                 <CampoFormLogin campo="Nome" type="text" id="name" name="name" />
 
                 <CampoFormLogin campo="Email" type="email" id="email" name="email" />
 
                 <CampoFormLogin campo="Senha" type="password" id="senha" name="senha" />
+                {registro && <CampoFormLogin campo="Confirmar Senha" type="password" id="confirmarSenha" name="confirmarSenha" />}
             </div>
             <div className="flex justify-center w-full">
-                    <Botao texto="Login" />
+                    <Botao texto={registro ? "Registrar" : "Login"} />
             </div>
         </form>
     );
