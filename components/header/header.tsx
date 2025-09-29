@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BotaoLogin } from "../botaoLogin/botaoLogin";
 import { use, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,6 +16,8 @@ const links = [
 
 export default function Header() {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const pathname = usePathname();
+
 
     const toggleNav = () => setIsNavOpen(!isNavOpen);
 
@@ -47,10 +50,10 @@ export default function Header() {
                 </div>
 
                 {isNavOpen && (
-                    <div className="md:hidden flex basis-full flex-col items-center gap-6 pb-6 ">
+                    <div className="md:hidden flex basis-full flex-col items-center gap-5 pb-6 ">
                         {links.map((link, index) => (
-                            <Link onClick={() => setIsNavOpen(false)} key={index} href={link.href} className="text-white hover:text-dourado px-2.5">
-                                <span className=" font-merriweather font-normal text-sm bp-540:text-base  xl:text-lg 2xl:text-xl 3xl:text-2xl">{link.label}</span>
+                            <Link onClick={() => setIsNavOpen(false)} key={index} href={link.href} className="text-white hover:text-dourado px-2.5 ">
+                                    <span className={`font-merriweather font-normal text-sm bp-540:text-base  xl:text-lg 2xl:text-xl 3xl:text-2xl ${pathname === link.href ? 'border-b-2 border-dourado' : ''}`}>{link.label}</span>
                             </Link>
                         ))}
                         <Link onClick={() => setIsNavOpen(false)} href="/login" className="text-white hover:text-dourado px-2.5">
@@ -63,7 +66,7 @@ export default function Header() {
             <nav className="hidden items-center justify-center pt-0 pb-2.5 gap-2.5 md:flex">
                 {links.map((link, index) => (
                     <Link key={index} href={link.href} className="text-white hover:text-dourado px-2.5">
-                        <span className=" font-merriweather font-normal text-sm bp-540:text-base xl:text-xl 2xl:text-2xl 3xl:text-3xl">{link.label}</span>
+                        <span className={`font-merriweather font-normal text-sm bp-540:text-base xl:text-xl 2xl:text-2xl 3xl:text-3xl ${pathname === link.href ? 'border-b-2 border-dourado' : ''}`}>{link.label}</span>
                     </Link>
                 ))}
             </nav>

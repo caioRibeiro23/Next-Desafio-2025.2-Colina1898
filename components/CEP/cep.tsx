@@ -1,12 +1,17 @@
 "use client";
 import { useState } from "react";
 
-export default function CEP({ calcularFrete }: { calcularFrete: (valor: number | null) => void }) {
+export default function CEP({ calcularFrete, subtotal }: { calcularFrete: (valor: number | null) => void, subtotal: number }) {
     const [cep, setCep] = useState("");
     const atualizaFrete = () => {
         let frete: number | null = 29.90;
-        if(!cep || cep.length !== 8) {
-            alert("CEP inválido.");
+        if(!cep || cep.length !== 8 || subtotal === 0) {
+            if(subtotal === 0) {
+                alert("Adicione produtos ao carrinho para calcular o frete.");
+            }
+            else{
+                alert("CEP inválido.");
+            }
             frete = null;
             calcularFrete(frete);
             return;

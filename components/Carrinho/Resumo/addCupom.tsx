@@ -1,12 +1,17 @@
 "use client";
 import {useState,} from "react";
 
-export default function AddCupom({calculaDesconto}: {calculaDesconto: (valor: number|null) => void}) {
+export default function AddCupom({calculaDesconto, subTotal}: {calculaDesconto: (valor: number|null) => void, subTotal: number}) {
     const [cupom, setCupom] = useState("");
     const adicionarCupom = () => {
         let valorDesconto:number|null = 10;
-        if ((!cupom) || (cupom !== "COLINA10" && cupom !== "GIGANTEDACOLINA")) {
-            alert("Cupom inválido");
+        if ((!cupom) || (cupom !== "COLINA10" && cupom !== "GIGANTEDACOLINA")|| subTotal < 30) {
+            if(subTotal < 30) {
+                alert("O valor mínimo para usar cupom é R$30,00");
+            }
+            else{
+                alert("Cupom inválido");
+            }
             valorDesconto = null;
             calculaDesconto(valorDesconto);
             return

@@ -15,9 +15,9 @@ export default function Resumo({ quantidade, subTotal }: { quantidade: number, s
             <div className="flex flex-col items-center justify-center w-full p-2.5 border-b border-dourado">
                 <TextoResumo titulo={`Itens (${quantidade})`} valor={`R$ ${subTotal.toFixed(2)}`} />
                 <TextoResumo titulo="Desconto" valor={desconto ? `R$ ${desconto.toFixed(2)}` : "-"} />
-                <AddCupom calculaDesconto={setDesconto} />
+                <AddCupom calculaDesconto={setDesconto} subTotal={subTotal} />
                 <TextoResumo titulo="Frete" valor={frete ? `R$ ${frete.toFixed(2)}` : "-"} />
-                <CEP calcularFrete={setFrete} />
+                <CEP calcularFrete={setFrete} subtotal={subTotal} />
             </div>
             <TextoResumo titulo="Total" valor={`R$ ${precoFinal.toFixed(2)}`} />
         </div>

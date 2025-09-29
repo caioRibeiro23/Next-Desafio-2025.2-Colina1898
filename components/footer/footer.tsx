@@ -1,4 +1,4 @@
-import Icones from "../icones/icones";
+import Icones from "../icones/iconesFooter";
 import Image from "next/image";
 import Link from "next/link";
 import { TextoFooter } from "../textoFooter/textoFooter";

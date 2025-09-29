@@ -12,7 +12,7 @@ export default function CarrinhoPage() {
         <div className="bg-black flex flex-col bp-840:flex-row items-start justify-center gap-10 py-12 lg:gap-10 px-5 w-full">
             <div className="flex flex-col items-start justify-start gap-2.5 p-2.5 w-full lg:px-5">
                 <h1 className="text-dourado text-2xl bp-540:text-3xl bp-840:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-semibold font-cormorant-sc">Carrinho</h1>
-                <div className="flex flex-col items-center justify-center gap-4 p-2.5 w-full">
+                <div className="flex flex-col items-center justify-center gap-4  w-full">
                     {cart.map((item) => (
                         <CardProduto key={item.id} item={item} />
                     ))}
