@@ -20,7 +20,7 @@ enum TipoProduto {
 
 model Produto{
   id        Int      @id @default(autoincrement())
-  title      String @unique
+  title      String 
   summary    String
   description String
   price      Float
