@@ -8,10 +8,10 @@ export async function POST(request: Request): Promise<Response> {
   try {
     const body: FormData = await request.json();
     const { data, error } = await resend.emails.send({
-      from: 'Acme <no-reply@resend.dev>',
+      from: 'Colina1898 <no-reply@resend.dev>',
       to: ['caio.ribeiro@codejr.com.br'],
       subject: 'Colina1898 - Contato',
-      react: KoalaWelcomeEmail({ userFirstname: body.name, userEmail: body.email }) as React.ReactElement,
+      react: KoalaWelcomeEmail({ userFirstname: body.name, userEmail: body.email, assunto: body.subject, message: body.message }) as React.ReactElement,
     });
 
     if (error) {

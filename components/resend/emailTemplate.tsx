@@ -11,19 +11,23 @@ import {
   Text,
 } from '@react-email/components';
 
-interface KoalaWelcomeEmailProps {
+interface Colina1898EmailProps {
   userFirstname: string;
   userEmail: string;
+  assunto: string;
+  message: string;
 }
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : '';
 
-export const KoalaWelcomeEmail = ({
+export const Colina1898Email = ({
   userFirstname,
   userEmail,
-}: KoalaWelcomeEmailProps) => (
+  assunto,
+  message,
+}: Colina1898EmailProps) => (
   <Html>
     <Head />
     <Body style={main}>
@@ -32,26 +36,31 @@ export const KoalaWelcomeEmail = ({
       </Preview>
       <Container style={container}>
         <Img
-          src={`${baseUrl}/static/koala-logo.png`}
+          src="https://next-desafio-2025-2-colina1898.vercel.app/logo/logo.png"
           width="170"
           height="50"
-          alt="Koala"
+          alt="Colina1898 Logo"
           style={logo}
         />
-        <Text style={paragraph}>Hi {userFirstname}, (@{userEmail})</Text>
+        <Text style={paragraph}>Olá {userFirstname}, (@{userEmail})</Text>
         <Text style={paragraph}>
-          Welcome to Koala, the sales intelligence platform that helps you
-          uncover qualified leads and close deals faster.
+          Formulário de contato enviado. A equipe da Colina1898 entrará em contato em breve e resolveremos a solicitação o mais rápido possível.
         </Text>
-        <Section style={btnContainer}>
-          <Button style={button} href="https://getkoala.com">
-            Get started
-          </Button>
-        </Section>
         <Text style={paragraph}>
-          Best,
+          Informações de contato:
           <br />
-          The Koala team
+          Nome: {userFirstname}
+          <br />
+          Email: {userEmail}
+          <br />
+          Assunto: {assunto}
+          <br />
+          Mensagem: {message}
+        </Text>
+        <Text style={paragraph}>
+          Atenciosamente,
+          <br />
+          Equipe da Colina1898
         </Text>
         <Hr style={hr} />
         <Text style={footer}>
@@ -62,11 +71,11 @@ export const KoalaWelcomeEmail = ({
   </Html>
 );
 
-KoalaWelcomeEmail.PreviewProps = {
+Colina1898Email.PreviewProps = {
   userFirstname: 'Alan',
-} as KoalaWelcomeEmailProps;
+} as Colina1898EmailProps;
 
-export default KoalaWelcomeEmail;
+export default Colina1898Email;
 
 const main = {
   backgroundColor: '#ffffff',
@@ -86,6 +95,7 @@ const logo = {
 const paragraph = {
   fontSize: '16px',
   lineHeight: '26px',
+  color: '#B69551',
 };
 
 const btnContainer = {
