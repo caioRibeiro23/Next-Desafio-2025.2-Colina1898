@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import BotaoSelecao from "./botaoSelecao";
+import { on } from "events";
 
-export default function Selecao(){
+
+export default function Selecao({onTamanhoChanged}:{onTamanhoChanged?: (tamanho: string) => void}){
     const [tamanhoSelecionado, setTamanhoSelecionado] = useState("");
 
     const handleTamanhoSelecionado = (tamanho: string) => {
         setTamanhoSelecionado(tamanho);
+        onTamanhoChanged?.(tamanho)
     };
     const tamanhos = ["PP", "P", "M", "G", "GG"];
     return (

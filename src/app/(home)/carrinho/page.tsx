@@ -14,7 +14,7 @@ export default function CarrinhoPage() {
                 <h1 className="text-dourado text-2xl bp-540:text-3xl bp-840:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-semibold font-cormorant-sc">Carrinho</h1>
                 <div className="flex flex-col items-center justify-center gap-4  w-full">
                     {cart.map((item) => (
-                        <CardProduto key={item.id} item={item} />
+                        <CardProduto key={`${item.id}-${item.title}`} item={item} />
                     ))}
                 </div>
             </div>

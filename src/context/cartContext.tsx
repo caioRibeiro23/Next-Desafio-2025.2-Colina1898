@@ -24,11 +24,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     const addToCart = (produto: ProdutoType) => {
         setCart((prevCart) => {
-            const existingItem = prevCart.find(item => item.id === produto.id);
+            const existingItem = prevCart.find(item => item.id === produto.id && item.title === produto.title);
             if (existingItem) {
                 return prevCart.map(item =>
-                    item.id === produto.id ? { ...item, quantity: item.quantity + 1 } : item
-                );
+                    item.id === produto.id && item.title === produto.title ? { ...item, quantity: item.quantity + 1 } : item
+                );  
             }
             else {
                 return [...prevCart, { ...produto, quantity: 1 }];
