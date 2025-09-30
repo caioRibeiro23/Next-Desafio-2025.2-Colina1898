@@ -5,6 +5,7 @@ import { ProdutoType } from "@/types/data";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { put } from "@vercel/blob";
+import { TipoProduto } from "@prisma/client";
 
 
 const itemsPerPage = 3;
@@ -43,6 +44,7 @@ export async function updateProduto(id: number | undefined, formData: FormData){
     const summary = formData.get("summary")?.toString() || "";
     const description = formData.get("description")?.toString() || "";
     const principalImageFile = formData.get("principalImage") as File | null;
+    const category = formData.get("category")?.toString() as TipoProduto;
     const secundaryImagesFiles = [
         formData.get("image-0") as File | null,
         formData.get("image-1") as File | null,
@@ -89,7 +91,8 @@ export async function updateProduto(id: number | undefined, formData: FormData){
             summary,
             description,
             principalImage: finalPrincipalImage,
-            secondaryImages: finalSecondaryImages
+            secondaryImages: finalSecondaryImages,
+            type: category
         }
         });
         revalidatePath("/gerenciamento"); 
@@ -101,6 +104,7 @@ export async function createProduto(formData: FormData) {
     const price = parseFloat(formData.get("price")?.toString() || "0");
     const summary = formData.get("summary")?.toString() || "";
     const description = formData.get("description")?.toString() || "";
+    const category = formData.get("category")?.toString() as TipoProduto;
     const principalFile = formData.get("principalImage") as File | null;
     const secundaryFiles = [
         formData.get("image-0") as File | null,
@@ -133,7 +137,7 @@ export async function createProduto(formData: FormData) {
             description,
             principalImage: principalImageUrl,
             secondaryImages,
-            type: "VESTUARIO"
+            type: category
         }
     });
     redirect("/gerenciamento");

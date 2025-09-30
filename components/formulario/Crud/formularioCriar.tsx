@@ -36,6 +36,8 @@ export default function FormularioCriar() {
                 <CampoFormCrud campo="Resumo" type="text" id="summary" name="summary" defaultValue="" />
 
                 <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue="" />
+
+                <CampoFormCrud campo="Categoria" type="text" id="category" name="category" defaultValue="" />
             </div>
             {/* area de imagens */}
             <div className="flex flex-col items-start justify-between w-full h-full md:px-10">

@@ -38,6 +38,8 @@ export default function FormularioEditar({produto}: {produto: ProdutoType | null
                 <CampoFormCrud campo="Resumo" type="text" id="summary" name="summary" defaultValue={produto?.summary ?? ""} />
 
                 <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue={produto?.description ?? ""} />
+
+                <CampoFormCrud campo="Categoria" type="text" id="category" name="category" defaultValue={produto?.type ?? ""} />
             </div>
             {/* area de imagens */}
             <div className="flex items-start justify-between w-full h-full px-12.5 flex-col">

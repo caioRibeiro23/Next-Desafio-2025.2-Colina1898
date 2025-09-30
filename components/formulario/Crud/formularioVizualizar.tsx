@@ -21,6 +21,8 @@ export default function FormularioVizualizar({ produto }: { produto: ProdutoType
                 <CampoFormCrud campo="Resumo" type="text" id="summary" name="summary" defaultValue={produto?.summary ?? ""} visualizar={true} />
 
                 <CampoFormCrud campo="Descrição" type="textarea" id="description" name="description" defaultValue={produto?.description ?? ""} visualizar={true} />
+
+                <CampoFormCrud campo="Categoria" type="text" id="category" name="category" defaultValue={produto?.type ?? ""} visualizar={true} />
             </div>
             {/* area de imagens */}
             <div className="fle items-center justify-between w-full h-full md:px-10">

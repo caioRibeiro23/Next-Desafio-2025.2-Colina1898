@@ -1,3 +1,5 @@
+import { TipoProduto } from "@prisma/client";
+
 export type ProdutoType = {
     id?: number;
     title?: string;
@@ -6,4 +8,5 @@ export type ProdutoType = {
     price?: number;
     description?: string;
     summary?: string;
+    type?:TipoProduto;
 }
