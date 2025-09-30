@@ -17,6 +17,9 @@ export default function CarrinhoPage() {
                         <CardProduto key={`${item.id}-${item.title}`} item={item} />
                     ))}
                 </div>
+                {cart.length === 0 && (
+                    <p className="text-white text-lg bp-540:text-xl bp-840:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-medium font-cormorant-sc text-center w-full py-10">Seu carrinho está vazio.</p>
+                )}
             </div>
             <div className="flex flex-col items-center justify-center gap-2.5 p-2.5 w-full bp-840:w-auto">
                 <Resumo quantidade={totalItems} subTotal={totalPrice} />
