@@ -2,7 +2,6 @@
 
 import { ProdutoType } from "@/types/data";
 import { createContext, useState, useContext, ReactNode } from "react";
-import { set } from "zod";
 
 export interface CartItem extends ProdutoType {
     quantity: number;

@@ -33,7 +33,7 @@ export default function CarrinhoPage() {
                         <i className="bi bi-arrow-right text-center text-sm bp-540:text-lg bp-840:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"></i>
                     </button>
                 ) : (
-                    <Link href={`/pedidoFinalizado?cart=${cartParam}`}>
+                    <Link href={`/pedidoFinalizado`}>
                         <button className="bg-dourado text-black flex justify-center items-center gap-2.5 text-lg bp-540:text-xl bp-840:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-medium font-cormorant-sc py-1.5 px-2.5 rounded-lg cursor-pointer border border-dourado hover:scale-102 transition duration-200 w-full text-center ">
                             Finalizar Compra
                             <i className="bi bi-arrow-right text-center text-sm bp-540:text-lg bp-840:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"></i>

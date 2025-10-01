@@ -1,5 +1,5 @@
 "use client";
-import {useState,} from "react";
+import {useState} from "react";
 
 export default function AddCupom({calculaDesconto, subTotal}: {calculaDesconto: (valor: number|null) => void, subTotal: number}) {
     const [cupom, setCupom] = useState("");

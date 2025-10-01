@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import BotaoSelecao from "./botaoSelecao";
-import { on } from "events";
 
 
 export default function Selecao({onTamanhoChanged}:{onTamanhoChanged?: (tamanho: string) => void}){

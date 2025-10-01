@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "@/src/lib/db";
-import { ProdutoType } from "@/types/data";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { put } from "@vercel/blob";

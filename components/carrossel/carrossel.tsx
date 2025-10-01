@@ -48,7 +48,7 @@ export default function Carrossel({ produtos }: CarrosselProps) {
                     {/*Container com os cards*/}
                     <div className="overflow-hidden max-w-6xl" ref={emblaRef}>
                         <div className="flex w-full">
-                            {produtos.map((produto, index) => (
+                            {produtos.map((produto) => (
                                 <div
                                     key={produto.id}
                                     className="flex flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] p-4 items-stretch justify-center w-fit"

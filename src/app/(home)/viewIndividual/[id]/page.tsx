@@ -1,8 +1,6 @@
 import { fetchProdutoById } from "@/actions/individual/actions";
-import Botao from "@/components/botaoPadrao/botao";
 import AreaFotos from "@/components/produtoInd/areaFotos/areaFotos";
 import ClientAction from "@/components/produtoInd/clientAction";
-import Selecao from "@/components/produtoInd/selecao/selecao";
 import Descricao from "@/components/Texto/descricao";
 import TituloMenor from "@/components/Texto/tituloMenor";
 

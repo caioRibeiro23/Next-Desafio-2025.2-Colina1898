@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Botao from "../../botaoPadrao/botao";
 import CampoFormLogin from "./campoFormLogin";
 import { useRouter } from "next/navigation";
