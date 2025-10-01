@@ -1,5 +1,5 @@
-import Formulario from "@/components/formulario/formulario";import Mapa from "@/components/mapa/mapa";
-''
+import Formulario from "@/components/formulario/formulario";
+import Mapa from "@/components/mapa/mapa";
 
 export default function Page(){
   return (

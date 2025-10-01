@@ -1,6 +1,5 @@
 import Botao from "@/components/botaoPadrao/botao";
 import { deleteProduto } from "@/actions/gerenciamento/actions";
-import { useState } from "react";
 
 export default function ModalExcluir({id, onFechar}: {id: number | undefined, onFechar: () => void}) {
     return (

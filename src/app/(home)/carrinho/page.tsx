@@ -9,8 +9,6 @@ export default function CarrinhoPage() {
     const {cart} = useCart();
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     const totalPrice = cart.reduce((total, item) => total + (item.price ?? 0) * item.quantity, 0);
-  
-    const cartParam = encodeURIComponent(JSON.stringify(cart));
 
     return (
         <div className="bg-black flex flex-col bp-840:flex-row items-start justify-center gap-10 py-12 lg:gap-10 px-5 w-full">

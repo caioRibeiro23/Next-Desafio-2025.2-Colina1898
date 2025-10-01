@@ -1,13 +1,8 @@
 "use client";
 
-import { useState } from "react";
-
-import Image from "next/image";
 import TextoCardProduto from "../Texto/textoCardProduto";
 import ZoomImage from "../Carrinho/zoomImage";
-import BotoesCrud from "../gerenciamento/tabela/botoes/botoesCrud";
 import { CartItem, useCart } from "@/src/context/cartContext";
-import { ProdutoType } from "@/types/data";
 
 export default function CardProduto({item}: { item: CartItem}) {
     const precoTotal = (item.price ?? 0) * item.quantity;
