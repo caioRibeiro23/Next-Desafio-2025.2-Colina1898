@@ -16,7 +16,7 @@ export default function PedidoFinalizadoPage() {
     const totalPedido = cart.reduce((total, item) => total + (item.price ?? 0) * item.quantity, 0);
 
     return (
-        <div className="flex flex-col items-center justify-start w-full bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/95 bg-blend-darken text-dourado px-40 py-10 text-center font-cormorant-sc gap-5 min-h-screen">
+        <div className="flex flex-col items-center justify-start w-full bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/95 bg-blend-darken text-dourado px-5 md:px-20 lg:px-40 py-10 text-center font-cormorant-sc gap-5 min-h-screen">
             <h1 className="font-cormorant-sc text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-bold">Compra Realizada com Sucesso!</h1>
             <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl mb-5">Obrigado por comprar conosco. Seu pedido foi processado com sucesso.</p>
             <div className={`${detalhesOpen ? 'hidden' : 'block'}`}>
