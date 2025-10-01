@@ -15,6 +15,7 @@ export default function PedidoFinalizadoPage() {
     const {cart, desconto, frete, clearCart} = useCart();
     const totalPedido = cart.reduce((total, item) => total + (item.price ?? 0) * item.quantity, 0);
 
+    const valorTotal = desconto ? totalPedido - desconto + (frete ? frete : 0) : totalPedido + (frete ? frete : 0);
     return (
         <div className="flex flex-col items-center justify-start w-full bg-[url('/fundo/fundoTorcida.jpg')] bg-cover bg-center bg-black/95 bg-blend-darken text-dourado px-5 md:px-20 lg:px-40 py-10 text-center font-cormorant-sc gap-5 min-h-screen">
             <h1 className="font-cormorant-sc text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-bold">Compra Realizada com Sucesso!</h1>
@@ -34,7 +35,7 @@ export default function PedidoFinalizadoPage() {
                     <LinhaResumo título="desconto" valor={desconto || 0} />
                     <LinhaResumo título="frete" valor={frete || 0} />
                     <hr className="w-full border-t border-dourado my-2.5" />
-                    <LinhaResumo título="Total" valor={totalPedido} />
+                    <LinhaResumo título="Total" valor={valorTotal} />
                 </div>
                 </>
             )}
