@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function CEP({ calcularFrete, subtotal }: { calcularFrete: (valor: number | null) => void, subtotal: number }) {
     const [cep, setCep] = useState("");
+    const [error, setError] = useState<string | null>(null);
     const atualizaFrete = () => {
         let frete: number | null = 29.90;
         if(!cep || cep.length !== 8 || subtotal === 0) {
@@ -10,7 +11,7 @@ export default function CEP({ calcularFrete, subtotal }: { calcularFrete: (valor
                 alert("Adicione produtos ao carrinho para calcular o frete.");
             }
             else{
-                alert("CEP inválido.");
+                setError("CEP inválido.");
             }
             frete = null;
             calcularFrete(frete);
@@ -27,6 +28,7 @@ export default function CEP({ calcularFrete, subtotal }: { calcularFrete: (valor
                 <input type="text" value={cep} onChange={(e) => setCep(e.target.value)} placeholder="Insira seu CEP" className="bg-pretoSuave text-white text-sm bp-540:text-sm bp-840:text-base xl:text-xl 2xl:text-2xl 3xl:text-3xl font-medium font-cormorant-sc py-1.5 px-2.5 rounded-lg focus:outline-none border border-dourado w-full bp-540:w-60 bp-840:w-72 xl:w-80 2xl:w-96" />
                 <button className="bg-dourado text-pretoSuave text-sm bp-540:text-sm bp-840:text-base xl:text-xl 2xl:text-2xl 3xl:text-3xl font-medium font-cormorant-sc py-1.5 px-2.5 rounded-lg cursor-pointer border border-dourado hover:scale-105 transition duration-200" onClick={atualizaFrete}>OK</button>
             </div>
+            { error && <span className="text-red-500 text-sm bp-540:text-sm bp-840:text-base xl:text-xl 2xl:text-2xl 3xl:text-3xl">{error}</span> }
         </div>
     );
 }

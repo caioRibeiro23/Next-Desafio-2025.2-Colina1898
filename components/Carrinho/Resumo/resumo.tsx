@@ -4,10 +4,11 @@ import { useState } from "react";
 import TextoResumo from "./textoResumo";
 import AddCupom from "./addCupom";
 import CEP from "@/components/CEP/cep";
+import { useCart } from "@/src/context/cartContext";
 
 export default function Resumo({ quantidade, subTotal }: { quantidade: number, subTotal: number }) {
-    const [frete, setFrete] = useState<number|null>(null);
-    const [desconto, setDesconto] = useState<number|null>(0);  
+    const{ desconto, setDesconto } = useCart();
+    const{ frete, setFrete } = useCart();
     const precoFinal = subTotal + (frete ? frete : 0) - (desconto ? desconto : 0);
     return (
         <div className="bg-cinzaEscuro flex flex-col items-start justify-center gap-2.5 px-4 py-2.5 w-full bp-840:w-80 lg:w-125 border border-dourado rounded-2xl">

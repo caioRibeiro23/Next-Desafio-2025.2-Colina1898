@@ -5,6 +5,7 @@ import Botao from "../botaoPadrao/botao";
 import { ProdutoType } from "@/types/data";
 import {useState} from "react";
 import Selecao from "./selecao/selecao";
+import Link from "next/link";
 
 export default function ClientAction( {produto}: {produto: ProdutoType | null} ) {
     const {addToCart} = useCart();
@@ -34,7 +35,9 @@ export default function ClientAction( {produto}: {produto: ProdutoType | null} )
           {error && <p className="text-dourado text-sm bp-540:text-base md:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-medium font-cormorant-sc">{error}</p>}
         <div className="flex flex-col items-center justify-center gap-5 w-full">
             {added ? <Botao texto={<div className="flex gap-2.5"><i className="bi bi-cart-check"></i><p>Produto adicionado ao carrinho!</p></div>} /> : <Botao texto={<div className="flex gap-2.5"><i className="bi bi-cart-plus"></i><p>Adicionar ao Carrinho</p></div>} onClick={handleAddToCart} />}
-            <Botao texto="Comprar Agora" />
+            <Link href="/carrinho">
+              <Botao texto="Comprar Agora" onClick={handleAddToCart} />
+            </Link>
         </div>
       </>
     );
