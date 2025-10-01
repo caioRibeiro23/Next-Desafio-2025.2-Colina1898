@@ -40,7 +40,7 @@ export default function FormularioCriar() {
                 <CampoFormCrud campo="Categoria" type="text" id="category" name="category" defaultValue="" />
             </div>
             {/* area de imagens */}
-            <div className="flex flex-col items-start justify-between w-full h-full md:px-10">
+            <div className="flex flex-col items-start justify-between w-full h-full px-12.5">
                 <div className="flex flex-col md:flex-row gap-15 p-2.5">
                     <div className="flex flex-col items-center justify-center font-cormorant-sc">
                         <span className="text-dourado font-bold text-start text-base bp-540:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">Foto Principal:</span>
